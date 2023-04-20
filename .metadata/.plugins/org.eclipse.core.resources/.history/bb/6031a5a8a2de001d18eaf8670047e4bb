@@ -1,0 +1,56 @@
+package com.usecase.department.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.usecase.department.model.Department;
+import com.usecase.department.service.DepartmentService;
+
+@RestController
+@RequestMapping("/department")
+public class Controller {
+//	private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
+
+	@Autowired
+	DepartmentService departmentService;
+
+	@PostMapping("/addDepartment")
+	public Department add(@RequestBody Department department) {
+//		LOGGER.info("Department add: {}", department);
+		return departmentService.addDepartment(department);
+	}
+	
+	@GetMapping("/departmentId/{id}")
+	public Department findById(@PathVariable("id") Long id) {
+//		LOGGER.info("Department find: id={}", id);
+		return departmentService.findByDepartmentId(id);
+	}
+	
+	@GetMapping("/allDepartment")
+	public List<Department> findAll() {
+//		LOGGER.info("Department find");
+		return departmentService.findAllDepartment();
+	}
+	
+	@GetMapping("/organization/{organizationId}")
+	public List<Department> findByOrganization(@PathVariable("organizationId") Long organizationId) {
+//		LOGGER.info("Department find: organizationId={}", organizationId);
+		return departmentService.findByOrganizationId(organizationId);
+	}
+	
+//	@GetMapping("/organization/{organizationId}/with-employees")
+//	public List<Department> findByOrganizationWithEmployees(@PathVariable("organizationId") Long organizationId) {
+//		LOGGER.info("Department find: organizationId={}", organizationId);
+//		List<Department> departments = repository.findByOrganization(organizationId);
+//		departments.forEach(d -> d.setEmployees(employeeClient.findByDepartment(d.getId())));
+//		return departments;
+//	}
+
+}

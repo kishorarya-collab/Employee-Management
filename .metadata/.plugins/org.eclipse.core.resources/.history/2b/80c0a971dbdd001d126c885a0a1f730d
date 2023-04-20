@@ -1,0 +1,38 @@
+package com.usecase.employee.service;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.usecase.employee.model.Employee;
+import com.usecase.employee.repository.EmployeeRepository;
+
+@Service
+public class EmployeeService implements Service{
+
+    @Autowired
+    private EmployeeRepository repo;
+
+
+    public Employee add(Employee employee) {
+        return this.repo.save(employee);
+    }
+
+    public Employee fById(Long id) {
+        return this.repo.findByid(id);
+    }
+
+    public Employee fByDept(Long departmentid) {
+        return this.repo.findBydepartmentId(departmentid);
+    }
+
+    public Employee fByOrg(Long organisationid) {
+        return this.repo.findByorganisationId(organisationid);
+    }
+
+    public List<Employee> findAll(){
+        return this.repo.findAll();
+    }
+}

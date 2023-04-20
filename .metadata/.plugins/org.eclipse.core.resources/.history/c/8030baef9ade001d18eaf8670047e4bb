@@ -1,0 +1,42 @@
+package com.usecase.department.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.usecase.department.model.Department;
+import com.usecase.department.repository.DepartmentRepository;
+import com.usecase.department.repository.EmployeeRepository;
+
+@Service
+public class DepartmentService {
+	
+	@Autowired
+	EmployeeRepository employeeRepository;
+	
+	@Autowired
+	DepartmentRepository departmentRepository;
+
+	public Department addDepartment(Department department) {
+		
+		return null;
+	}
+
+	public Department findBydDepartmentId(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Department> findAllDepartment() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Department> findByOrganizationId(Long organizationId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

@@ -1,0 +1,14 @@
+package com.usecase.employee.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.usecase.employee.model.Employee;
+
+
+public interface EmployeeRepository extends JpaRepository <Employee, String> {
+    public Employee findByid(Long id);
+    public Employee findAllBydepartmentId(Long departmentid);
+    public Employee findAllByorganizationId(Long organizationid);
+    
+}
+
