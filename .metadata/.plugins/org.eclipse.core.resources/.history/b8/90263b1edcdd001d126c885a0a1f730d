@@ -1,5 +1,0 @@
-package com.usecase.employee.serviceimpl;
-
-public interface ServiceImpl {
-
-}

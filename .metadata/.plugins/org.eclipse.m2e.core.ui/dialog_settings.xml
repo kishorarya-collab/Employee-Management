@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\10711083\Desktop\Use Case Development\department-service"/>
+			<item value="C:\Users\10711083\Desktop\Use Case Development\employee-service"/>
 			<item value="C:\Users\10711083\Desktop\Use Case Development\EurekaServer"/>
 			<item value="C:\Users\10711083\Desktop\Use Case Development\eureka"/>
 			<item value="C:\Users\10711083\Desktop\Use Case Development\department"/>
