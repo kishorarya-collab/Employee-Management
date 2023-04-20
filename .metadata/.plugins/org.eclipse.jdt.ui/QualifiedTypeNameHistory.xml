@@ -21,4 +21,6 @@
     <fullyQualifiedTypeName name="com.usecase.department.model.Employee"/>
     <fullyQualifiedTypeName name="com.usecase.department.repository.EmployeeRepository"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.usecase.employee.exception.EmployeeNotFoundException"/>
 </qualifiedTypeNameHistroy>
