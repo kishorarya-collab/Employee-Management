@@ -1,0 +1,5 @@
+package com.usecase.employee.model;
+
+public class Employee {
+
+}
