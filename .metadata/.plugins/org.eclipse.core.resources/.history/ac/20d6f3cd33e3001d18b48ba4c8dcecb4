@@ -1,0 +1,5 @@
+package com.usecase.employee.exceptionhandling;
+
+public class EmployeeNotFoundException {
+
+}

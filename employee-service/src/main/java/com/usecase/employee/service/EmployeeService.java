@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.usecase.employee.exceptionhandling.EmployeeNotFoundException;
 import com.usecase.employee.model.Employee;
 import com.usecase.employee.repository.EmployeeRepository;
 
@@ -20,8 +21,16 @@ public class EmployeeService {
 	}
 	
 	public Employee findById(Long id) {
-		return this.repo.findByid(id);
-		
+		Employee employee=this.repo.findByid(id);
+		System.out.println(employee);
+		try {
+			if(employee==null) {
+				throw new EmployeeNotFoundException("500","please send a correct id");
+			}
+			return employee;
+		}catch(Exception e){
+			throw new EmployeeNotFoundException("400","there is some problem"+e.getMessage());
+		}
 	}
 	
 	public List<Employee> findByDepartment(Long departmentid) {
