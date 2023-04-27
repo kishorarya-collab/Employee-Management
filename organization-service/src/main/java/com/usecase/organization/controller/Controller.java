@@ -4,25 +4,21 @@ package com.usecase.organization.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.usecase.organization.model.Organization;
-import com.usecase.organization.service.OrganizationService;
+import com.usecase.organization.service.OrganizationServiceImpl;
 
 
 @RestController
 @RequestMapping("/organization")
 public class Controller {
 
-//	private static final Logger LOGGER = LoggerFactory.getLogger(OrganizationController.class);
 	
 	@Autowired
-	private OrganizationService organizationService;
+	private OrganizationServiceImpl organizationService;
 	
 	@PostMapping("/addOrganization")
 	public Organization add(@RequestBody Organization organization) {
@@ -35,29 +31,18 @@ public class Controller {
 	}
 	
 	@GetMapping("/organizationId/{id}")
-	public Organization findByOrganizationId(@PathVariable("id") Long organizationId) {
-		return this.organizationService.findByorganizationId(organizationId);
+	public ResponseEntity<Organization> findByOrganizationId(@PathVariable("id") Long organizationId) {
+		return new ResponseEntity<Organization>(this.organizationService.findByOrganizationId(organizationId), HttpStatus.NOT_FOUND);
 	}
 
-//	@GetMapping("/{id}/with-departments")
-//	public Organization findByIdWithDepartments(@PathVariable("id") Long id) {
-//		Organization organization = repository.findById(id);
-//		organization.setDepartments(departmentClient.findByOrganization(organization.getId()));
-//		return organization;
-//	}
-//	
-//	@GetMapping("/{id}/with-departments-and-employees")
-//	public Organization findByIdWithDepartmentsAndEmployees(@PathVariable("id") Long id) {
-//		Organization organization = repository.findById(id);
-//		organization.setDepartments(departmentClient.findByOrganizationWithEmployees(organization.getId()));
-//		return organization;
-//	}
-//	
-//	@GetMapping("/{id}/with-employees")
-//	public Organization findByIdWithEmployees(@PathVariable("id") Long id) {
-//		Organization organization = repository.findById(id);
-//		organization.setEmployees(employeeClient.findByOrganization(organization.getId()));
-//		return organization;
-//	}
-	
+	@DeleteMapping("/delete/{organizationId}")
+	public String deleteOrganization(@PathVariable("organizationId") Long organizationId){
+		return this.organizationService.deleteOrganization(organizationId);
+	}
+
+	@PutMapping("/update/{organizationId}")
+	public Organization updateOrganization(@PathVariable("organizationId") Long organizationId,@RequestBody Organization organization){
+		 return this.organizationService.updateOrganization(organizationId,organization);
+	}
+
 }

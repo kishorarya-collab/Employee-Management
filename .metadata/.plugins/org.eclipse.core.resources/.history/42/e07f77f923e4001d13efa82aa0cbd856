@@ -1,0 +1,5 @@
+package com.usecase.department.service.impl;
+
+public class IDepartmentServiceImpl {
+
+}

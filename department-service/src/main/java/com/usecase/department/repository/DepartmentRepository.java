@@ -8,7 +8,9 @@ import com.usecase.department.model.Department;
 
 public interface DepartmentRepository extends JpaRepository<Department, Long>{
 	
-	public Department findBydepartmentId(Long id);
+//	public Department findBydepartmentid(Long id);
 	public List<Department> findAllByorganizationId(Long organizationId);
+
+	public Department findBydepartmentId(Long departmentId);
 	
 }

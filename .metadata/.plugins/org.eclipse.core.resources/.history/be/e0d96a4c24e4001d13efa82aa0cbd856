@@ -1,0 +1,8 @@
+package com.usecase.department.service;
+
+import com.usecase.department.model.Department;
+
+public interface DepartmentService {
+	public Department addDepartment(Department department);
+	public Department findByDepartmentId(Long departmentId);
+}

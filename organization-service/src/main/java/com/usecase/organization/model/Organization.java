@@ -8,7 +8,6 @@ public class Organization {
 
 	@Id
 	private Long organizationId;
-	
 	private String organizationName;
 	private String organizationAddress;
 

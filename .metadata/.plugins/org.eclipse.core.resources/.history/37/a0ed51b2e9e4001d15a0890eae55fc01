@@ -1,0 +1,5 @@
+package com.usecase.organization.exception;
+
+public class OrganizationNotFoundException {
+
+}

@@ -6,23 +6,26 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usecase.employee.model.Employee;
 import com.usecase.employee.service.EmployeeService;
+import com.usecase.employee.service.impl.IEmployeeServiceImpl;
 
 @RestController
 @RequestMapping("/employee")
 public class Controller {
 	
     @Autowired
-    private EmployeeService service;
+    private IEmployeeServiceImpl service;
 
     @PostMapping("/addEmployee")
     public Employee addEmployee(@RequestBody Employee employee) {
@@ -55,9 +58,21 @@ public class Controller {
 //		LOGGER.info("Employee find: organizationId={}", organizationId);
 		return service.findByOrganization(organizationId);
 	}
-
-	@ExceptionHandler(NullPointerException.class)
-	public String exceptionHandle() {
-		return "employee dosnt exist";
+	
+	@DeleteMapping("/delete/{deleteId}")
+	public String deleteById(@PathVariable("deleteId") Long deleteId) {
+		
+		return service.deleteById(deleteId);
+	}
+	
+	@DeleteMapping("/deleteAll")
+	public String deleteAllEmployee() {
+		service.deleteAllEmployee();
+		return "All Employees has been deleted";
+	}
+	
+	@PutMapping("update/{employeeId}")
+	public Employee updateEmployee(@PathVariable("employeeId") Long employeeId, @RequestBody Employee employee) {
+		return service.updateEmployee(employeeId,employee);
 	}
 }

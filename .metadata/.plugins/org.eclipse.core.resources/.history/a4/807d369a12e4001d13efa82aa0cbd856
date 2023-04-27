@@ -1,0 +1,15 @@
+package com.usecase.employee.service.impl;
+
+import java.util.List;
+
+import com.usecase.employee.model.Employee;
+
+public interface IEmployeeService {
+	
+	Integer saveEmployee(Employee e);
+	List<Employee> getAllEmployees();
+	Employee getOneEmployee(Integer id);
+	void deleteEmployee(Integer id);
+	
+
+}

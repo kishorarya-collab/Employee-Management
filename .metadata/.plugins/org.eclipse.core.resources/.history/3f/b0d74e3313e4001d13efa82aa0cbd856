@@ -1,0 +1,5 @@
+package com.usecase.employee.sevice.impl;
+
+public class IEmployeeServiceImpl {
+
+}

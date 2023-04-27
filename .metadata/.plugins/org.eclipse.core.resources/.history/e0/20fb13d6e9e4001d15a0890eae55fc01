@@ -1,0 +1,5 @@
+package com.usecase.organization.exceptionhandler;
+
+public class CustomExceptionHandler {
+
+}
