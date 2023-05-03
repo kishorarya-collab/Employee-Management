@@ -63,7 +63,7 @@ public class IDepartmentServiceImpl implements DepartmentService{
 	@Override
 	public Department updateDepartment(Long departmentId,Department department) {
 		Department dep=this.findByDepartmentId(departmentId);
-		dep.setdepartmentName(department.getdepartmentName());
+		dep.setDepartmentName(department.getDepartmentName());
 		dep.setOrganizationId(department.getOrganizationId());
 		this.departmentRepository.save(dep);
 		return dep;

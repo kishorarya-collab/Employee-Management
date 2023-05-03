@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.usecase.organization.model.Organization;
-import com.usecase.organization.service.OrganizationServiceImpl;
+import com.usecase.organization.service.impl.OrganizationServiceImpl;
 
 
 @RestController
@@ -32,7 +32,7 @@ public class Controller {
 	
 	@GetMapping("/organizationId/{id}")
 	public ResponseEntity<Organization> findByOrganizationId(@PathVariable("id") Long organizationId) {
-		return new ResponseEntity<Organization>(this.organizationService.findByOrganizationId(organizationId), HttpStatus.NOT_FOUND);
+		return new ResponseEntity<Organization>(this.organizationService.findByOrganizationId(organizationId), HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{organizationId}")

@@ -25,11 +25,11 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-    public Long getdepartmentId() {
+    public Long getDepartmentId() {
         return departmentId;
     }
 
-    public void setdepartmentId(Long id) {
+    public void setDepartmentId(Long id) {
         this.departmentId = id;
     }
 
@@ -41,11 +41,11 @@ public class Department {
         this.organizationId = organizationId;
     }
 
-    public String getdepartmentName() {
+    public String getDepartmentName() {
         return departmentName;
     }
 
-    public void setdepartmentName(String departmentName) {
+    public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }
 
