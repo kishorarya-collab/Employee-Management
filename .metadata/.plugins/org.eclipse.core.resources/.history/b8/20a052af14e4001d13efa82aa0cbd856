@@ -1,9 +1,0 @@
-package com.usecase.employee.service;
-
-import com.usecase.employee.model.Employee;
-
-public interface EmployeeService {
-
-	public Employee addEmployee(Employee employee);
-	public Employee findById(Long id);
-}

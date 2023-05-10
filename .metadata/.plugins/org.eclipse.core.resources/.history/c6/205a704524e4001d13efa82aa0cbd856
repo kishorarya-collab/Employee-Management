@@ -1,8 +1,0 @@
-package com.usecase.department.service;
-
-
-public interface DepartmentService {
-	
-	
-
-}

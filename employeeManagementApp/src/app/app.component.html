@@ -1,0 +1,51 @@
+
+<!-- <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class = "navbar-nav">
+        <li class = "nav-item">
+            <a routerLink="employees" routerLinkActive="active" class="nav-link" >Employee List</a>
+        </li>
+        <li class = "nav-item">
+            <a routerLink="addEmployee" routerLinkActive="active" class="nav-link" >Add Employee</a>
+        </li>
+    </ul>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li> -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" routerLink="addEmployee" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Add Employee
+          </a>
+        </li>
+      </ul>
+      
+    </div>
+  </nav>
+
+<div class = "container">
+    <router-outlet></router-outlet>
+</div>
+<!-- <footer class = "footer">
+    <div class = "foots container">
+        <span>All Rights Reserved 2023@LTIMINDTREE</span>
+    </div>
+</footer> -->
+
+<footer class="bg-dark text-center text-white footer">
+    
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright: LTIMindtree
+    </div>
+  </footer>

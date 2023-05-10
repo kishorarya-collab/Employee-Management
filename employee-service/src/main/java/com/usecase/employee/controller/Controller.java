@@ -5,9 +5,12 @@ import java.util.List;
 
 import com.usecase.employee.model.Department;
 import com.usecase.employee.model.Organization;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,9 +22,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.usecase.employee.model.Employee;
 import com.usecase.employee.service.impl.IEmployeeServiceImpl;
+
+import ch.qos.logback.classic.Logger;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import jakarta.servlet.http.HttpServletResponse;
+
 import org.springframework.web.client.RestTemplate;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/employee")
 public class Controller {
 	
@@ -31,6 +40,7 @@ public class Controller {
 //	@Autowired
 //	private RestTemplate restTemplate;
 
+    
     @PostMapping("/addEmployee")
     public Employee addEmployee(@RequestBody Employee employee) {
         return this.service.addEmployee(employee);
@@ -78,20 +88,25 @@ public class Controller {
 		return service.updateEmployee(employeeId,employee);
 	}
 
+	@CircuitBreaker(name = "employee-service", fallbackMethod = "employeeFallback")
 	@GetMapping("/getDepartmentDetails/{employeeId}")
-	public Department getDepartmentDetails(@PathVariable("employeeId") Long employeeId){
+	public ResponseEntity<Department> getDepartmentDetails(@PathVariable("employeeId") Long employeeId){
 		Employee employee=this.service.findById(employeeId);
 		RestTemplate restTemplate= new RestTemplate();
 		Department department=restTemplate.getForObject("http://localhost:8999/department/departmentId/"+employee.getDepartmentId(),Department.class);
-		return department;
+		return new ResponseEntity<Department>(department,HttpStatus.OK);
 	}
 
-	
+	@CircuitBreaker(name = "employee-service", fallbackMethod = "employeeFallback")
 	@GetMapping("/getOrganizationDetails/{employeeId}")
-	public Organization getOrganizationDetails(@PathVariable("employeeId") Long employeeId){
+	public ResponseEntity<Organization> getOrganizationDetails(@PathVariable("employeeId") Long employeeId){
 		Employee employee=this.service.findById(employeeId);
 		RestTemplate restTemplate= new RestTemplate();
 		Organization organization=restTemplate.getForObject("http://localhost:8999/organization/organizationId/"+employee.getOrganizationId(), Organization.class);
-		return organization;
+		return new ResponseEntity<Organization>(organization,HttpStatus.OK);
+	}
+
+	public ResponseEntity<String> employeeFallback(Exception e){
+		return new ResponseEntity<String>("service is down",HttpStatus.OK);
 	}
 }
