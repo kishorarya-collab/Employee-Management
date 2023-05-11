@@ -35,4 +35,11 @@
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="org.springframework.web.cors.UrlBasedCorsConfigurationSource"/>
     <fullyQualifiedTypeName name="org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource"/>
+    <fullyQualifiedTypeName name="io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="ch.qos.logback.classic.Logger"/>
+    <fullyQualifiedTypeName name="org.hibernate.boot.jaxb.JaxbLogger_.logger"/>
+    <fullyQualifiedTypeName name="org.hibernate.bytecode.enhance.spi.interceptor.BytecodeInterceptorLogging_.logger"/>
+    <fullyQualifiedTypeName name="org.hibernate.cache.spi.SecondLevelCacheLogger_.logger"/>
+    <fullyQualifiedTypeName name="org.hibernate.internal.EntityManagerMessageLogger_.logger"/>
 </qualifiedTypeNameHistroy>

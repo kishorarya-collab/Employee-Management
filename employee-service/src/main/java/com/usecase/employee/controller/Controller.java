@@ -22,10 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.usecase.employee.model.Employee;
 import com.usecase.employee.service.impl.IEmployeeServiceImpl;
-
-import ch.qos.logback.classic.Logger;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.web.client.RestTemplate;
 
