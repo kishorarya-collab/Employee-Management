@@ -1,3 +1,26 @@
-.bnv{
-    background-image: url("/src/assets/Images/admin\ background.jpg"); 
-   }
+.emp{
+    border-radius: 10px;
+    background-color: #a0a0a0b0;
+    padding: 50px;
+    margin-top: 10px;
+    /* margin-right: 500px; */
+}
+.dep{
+    border-radius: 10px;
+    background-color:#a0a0a091;
+    padding: 50px;
+    margin-top: 10px;
+    /* margin-right: 500px; */
+}
+.org{
+    border-radius: 10px;
+    background-color: #a0a0a0a1;
+    padding: 50px;
+    margin-top: 10px;
+    margin-right: 555px;
+}
+.admin{
+background-image: url(https://hitfigure.com/wp-content/uploads/2012/03/login-background.jpg);
+background-color: red;
+padding-bottom: 130px;
+}

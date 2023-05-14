@@ -1,5 +1,0 @@
-package com.usecase.apigateway.config;
-
-public class CrossConfiguration {
-
-}
