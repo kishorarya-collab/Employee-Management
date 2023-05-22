@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -9,7 +9,18 @@
         </li>
       </ul>
     </div>
+</nav> -->
+
+
+<nav>
+  <div class="topnav">
+      <a routerLink="/adminDashboard">Home</a>
+      <!-- <a class="active" routerLink="orgProfile">Profile</a> -->
+      <a routerLink="/addEmployee">Add Employee</a>
+  </div>
 </nav>
+
+
 
 
 <div class="container base l1 bdy">
@@ -35,8 +46,8 @@
                   <tr *ngFor = "let employee of employees">
 
                     <td>{{employee.id}}</td>
-                    <td>{{employee.organizationId}}</td>
-                    <td>{{employee.departmentId}}</td>
+                    <td (click)="getOrg(employee.id)">{{employee.organizationId}}</td>
+                    <td (click)="getDep(employee.id)">{{employee.departmentId}}</td>
                     <td>{{employee.name}}</td>
                     <td>{{employee.age}}</td>
                     <td>{{employee.position}}</td>

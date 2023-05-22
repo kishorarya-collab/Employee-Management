@@ -16,7 +16,10 @@ import { UpdateDepartmentComponent } from './modules/Department/update-departmen
 import { ListOrganizationComponent } from './modules/Organization/list-organization/list-organization.component';
 import { AddOrganizationComponent } from './modules/Organization/add-organization/add-organization.component';
 import { UpdateOrganizationComponent } from './modules/Organization/update-organization/update-organization.component';
-import { OrgDetailsComponent } from './modules/org-details/org-details.component';
+import { OrgProfileComponent } from './modules/Organization/org-profile/org-profile.component';
+import { DepProfileComponent } from './modules/Department/dep-profile/dep-profile.component';
+import { EmpProfileComponent } from './modules/Employee/emp-profile/emp-profile.component';
+import { LoginComponent } from './modules/login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { OrgDetailsComponent } from './modules/org-details/org-details.component
     ListOrganizationComponent,
     UpdateOrganizationComponent,
     AddOrganizationComponent,
-    OrgDetailsComponent,
+    OrgProfileComponent,
+    DepProfileComponent,
+    EmpProfileComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

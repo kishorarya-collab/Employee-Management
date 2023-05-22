@@ -20,6 +20,10 @@ spring:
               allowedMethods: "*"
               allowedHeaders: "*"
       routes:
+        - id: login-service
+          uri: lb://login-service
+          predicates:
+            - Path=/login/**
         - id: employee-service
           uri: lb://employee-service
           predicates:

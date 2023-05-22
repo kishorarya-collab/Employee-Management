@@ -44,7 +44,7 @@ public class Controller {
     }
     
     @GetMapping("/employeeId/{id}")
-	public ResponseEntity<Employee> findById(@PathVariable("id") Long id) {
+	public ResponseEntity<Employee> findById(@PathVariable("id") String id) {
     	
     	Employee employee=service.findById(id);
     	
@@ -68,7 +68,7 @@ public class Controller {
 	}
 	
 	@DeleteMapping("/delete/{deleteId}")
-	public String deleteById(@PathVariable("deleteId") Long deleteId) {
+	public String deleteById(@PathVariable("deleteId") String deleteId) {
 		
 		return service.deleteById(deleteId);
 	}
@@ -80,14 +80,14 @@ public class Controller {
 	}
 	
 	@PutMapping("update/{employeeId}")
-	public Employee updateEmployee(@PathVariable("employeeId") Long employeeId, @RequestBody Employee employee) {
+	public Employee updateEmployee(@PathVariable("employeeId") String employeeId, @RequestBody Employee employee) {
 
 		return service.updateEmployee(employeeId,employee);
 	}
 
 	@CircuitBreaker(name = "employee-service", fallbackMethod = "employeeFallback")
 	@GetMapping("/getDepartmentDetails/{employeeId}")
-	public ResponseEntity<Department> getDepartmentDetails(@PathVariable("employeeId") Long employeeId){
+	public ResponseEntity<Department> getDepartmentDetails(@PathVariable("employeeId") String employeeId){
 		Employee employee=this.service.findById(employeeId);
 		RestTemplate restTemplate= new RestTemplate();
 		Department department=restTemplate.getForObject("http://localhost:8999/department/departmentId/"+employee.getDepartmentId(),Department.class);
@@ -96,7 +96,7 @@ public class Controller {
 
 	@CircuitBreaker(name = "employee-service", fallbackMethod = "employeeFallback")
 	@GetMapping("/getOrganizationDetails/{employeeId}")
-	public ResponseEntity<Organization> getOrganizationDetails(@PathVariable("employeeId") Long employeeId){
+	public ResponseEntity<Organization> getOrganizationDetails(@PathVariable("employeeId") String employeeId){
 		Employee employee=this.service.findById(employeeId);
 		RestTemplate restTemplate= new RestTemplate();
 		Organization organization=restTemplate.getForObject("http://localhost:8999/organization/organizationId/"+employee.getOrganizationId(), Organization.class);

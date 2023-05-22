@@ -10,11 +10,15 @@ import { ListDepartmentComponent } from './modules/Department/list-department/li
 import { UpdateDepartmentComponent } from './modules/Department/update-department/update-department.component';
 import { UpdateOrganizationComponent } from './modules/Organization/update-organization/update-organization.component';
 import { ListOrganizationComponent } from './modules/Organization/list-organization/list-organization.component';
+import { OrgProfileComponent } from './modules/Organization/org-profile/org-profile.component';
+import { DepProfileComponent } from './modules/Department/dep-profile/dep-profile.component';
+import { EmpProfileComponent } from './modules/Employee/emp-profile/emp-profile.component';
+import { LoginComponent } from './modules/login/login.component';
 
 const routes: Routes = [
   {path: 'employees',component:ListEmployeeComponent},
   {path:'adminDashboard',component:AdminDashboardComponent},
-  {path:'',redirectTo:'adminDashboard',pathMatch:'full'},
+  {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'addEmployee',component:AddEmployeeComponent},
   {path:'updateEmployee/:id',component:UpdateEmployeeComponent},
   {path:'departments',component:ListDepartmentComponent},
@@ -22,7 +26,11 @@ const routes: Routes = [
   {path:'updateDepartment/:id',component:UpdateDepartmentComponent},
   {path:'organizations',component:ListOrganizationComponent},
   {path:'updateOrganization/:id',component:UpdateOrganizationComponent},
-  {path:'addOrganization',component:AddOrganizationComponent}
+  {path:'addOrganization',component:AddOrganizationComponent},
+  {path:'orgProfile',component:OrgProfileComponent},
+  {path:'depProfile',component:DepProfileComponent},
+  {path:'empProfile',component:EmpProfileComponent},
+  {path:'login',component:LoginComponent}
 ];
 
 @NgModule({

@@ -9,11 +9,11 @@ import com.usecase.employee.model.Employee;
 public interface EmployeeService {
 
 	public Employee addEmployee(Employee employee);
-	public Employee findById(Long id);
+	public Employee findById(String id);
 	public List<Employee> findByDepartment(Long departmentid);
 	public List<Employee> findByOrganization(Long organizationid);
 	public List<Employee> findAllEmployee();
-	public String deleteById(Long deleteId);
+	public String deleteById(String deleteId);
 	public void deleteAllEmployee();
-	public Employee updateEmployee(Long employeeId, Employee employee);
+	public Employee updateEmployee(String employeeId, Employee employee);
 }

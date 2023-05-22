@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 public class Employee {
 	
     @Id
-    private Long id;
+    private String id;
     private Long organizationId;
     private Long departmentId;
     private String name;
@@ -27,11 +27,11 @@ public class Employee {
         this.position = position;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

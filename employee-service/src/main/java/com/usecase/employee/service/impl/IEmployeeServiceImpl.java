@@ -25,7 +25,7 @@ public class IEmployeeServiceImpl implements EmployeeService {
 	}
 	
 	@Override
-	public Employee findById(Long id) {
+	public Employee findById(String id) {
 		Optional<Employee> opt = repo.findById(id);
 		Employee emp = opt.orElseThrow( 
 				()-> new EmployeeNotFoundException("Employee not exist") 
@@ -62,7 +62,7 @@ public class IEmployeeServiceImpl implements EmployeeService {
 //		}
 //		return new ResponseEntity<String>(str,HttpStatus.OK);
 //	}
-	public String deleteById(Long deleteId) {
+	public String deleteById(String deleteId) {
 		String str="";
 		Employee emp=this.findById(deleteId);
 		if(emp!=null)str="Employee has been deleted";
@@ -76,7 +76,7 @@ public class IEmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee updateEmployee(Long employeeId, Employee employee) {
+	public Employee updateEmployee(String employeeId, Employee employee) {
 	
 		Employee emp;
 		emp=this.findById(employeeId);

@@ -12,7 +12,7 @@ export class UpdateEmployeeComponent{
   
   emp: Employee=new Employee();
   constructor(private employeeService:EmployeeManagementService,private router:Router,private route:ActivatedRoute){};
-  id:Number;
+  id:String;
   ngOnInit(): void {
     this.id=this.route.snapshot.params['id'];
     this.employeeService.getEmployeeById(this.id).subscribe((data)=>{
