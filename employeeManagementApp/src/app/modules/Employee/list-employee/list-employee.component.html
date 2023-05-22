@@ -43,7 +43,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor = "let employee of employees">
+                  <tr *ngFor = "let employee of employees | paginate : {
+                  itemsPerPage : 5,
+                  currentPage : page,
+                  totalItems : totalRecords
+                  }">
 
                     <td>{{employee.id}}</td>
                     <td (click)="getOrg(employee.id)">{{employee.organizationId}}</td>
@@ -56,6 +60,9 @@
                 </tr>
                 </tbody>
               </table>
+              <div class="pagination">
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+              </div>
             </div>
           </div>
         </div>

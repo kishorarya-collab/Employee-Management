@@ -33,7 +33,7 @@ export class ListDepartmentComponent {
     this.departmentService.deleteDepartment(id).subscribe(data=>{
       console.log(data);
     });
-    this.router.navigate([''])
+    this.router.navigate(['/adminDashboard'])
   }
 
 }

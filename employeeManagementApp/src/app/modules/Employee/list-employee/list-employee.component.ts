@@ -15,7 +15,8 @@ export class ListEmployeeComponent {
   constructor(private employeeService:EmployeeManagementService, private router:Router){}
 
   id : Number;
-  
+  totalRecords:any;
+  page:any=1;
   ngOnInit(): void{
     this.getEmployees();
   }
@@ -24,6 +25,8 @@ export class ListEmployeeComponent {
     this.employeeService.getEmployeeList().subscribe(data=>{
       console.log(data);
       this.employees=data;
+      this.totalRecords=this.employees.length;
+      
     })
   }
 
@@ -35,7 +38,7 @@ export class ListEmployeeComponent {
     this.employeeService.deleteEmployee(id).subscribe(data=>{
       console.log(data);
     });
-    this.router.navigate([''])
+    this.router.navigate(['/adminDashboard'])
   }
   getOrg(empId:String){
     this.employeeService.getOrgByEmp(empId).subscribe(data=>{

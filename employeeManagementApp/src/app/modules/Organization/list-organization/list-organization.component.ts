@@ -32,6 +32,6 @@ export class ListOrganizationComponent {
     this.organizationService.deleteOrganization(id).subscribe(data=>{
       console.log(data);
     })
-    this.router.navigate([''])
+    this.router.navigate(['/adminDashboard'])
   }
 }
