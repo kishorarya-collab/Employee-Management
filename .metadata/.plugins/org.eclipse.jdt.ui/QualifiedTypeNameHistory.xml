@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.usecase.employee.exception.EmployeeNotFoundException"/>
     <fullyQualifiedTypeName name="com.usecase.employee.service.impl.IEmployeeServiceImpl"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.usecase.department.service.impl.IDepartmentServiceImpl"/>
     <fullyQualifiedTypeName name="com.usecase.department.service.DepartmentService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ExceptionHandler"/>
@@ -54,4 +53,5 @@
     <fullyQualifiedTypeName name="com.usecase.login.repository.LoginRepository"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

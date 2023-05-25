@@ -92,4 +92,7 @@ export class EmployeeManagementService {
   login(login:Login){
     return this.httpClient.post(`${this.baseURL}/login/signin`,login);
   }
+  saveCred(login:Login){
+    return this.httpClient.post(`${this.baseURL}/login/saveCred`,login);
+  }
 }

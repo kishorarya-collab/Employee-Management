@@ -10,7 +10,6 @@ import com.usecase.employee.model.Organization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,12 +26,12 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/employee")
 public class Controller {
 	
     @Autowired
     private IEmployeeServiceImpl service;
+    private static final String EMPLOYEE_SERVICE = "employeeService";
 
 //	@Autowired
 //	private RestTemplate restTemplate;
@@ -85,8 +84,9 @@ public class Controller {
 		return service.updateEmployee(employeeId,employee);
 	}
 
-	@CircuitBreaker(name = "employee-service", fallbackMethod = "employeeFallback")
+	
 	@GetMapping("/getDepartmentDetails/{employeeId}")
+	@CircuitBreaker(name=EMPLOYEE_SERVICE, fallbackMethod = "employeeFallback")
 	public ResponseEntity<Department> getDepartmentDetails(@PathVariable("employeeId") String employeeId){
 		Employee employee=this.service.findById(employeeId);
 		RestTemplate restTemplate= new RestTemplate();
@@ -94,16 +94,23 @@ public class Controller {
 		return new ResponseEntity<Department>(department,HttpStatus.OK);
 	}
 
-	@CircuitBreaker(name = "employee-service", fallbackMethod = "employeeFallback")
+
+	
 	@GetMapping("/getOrganizationDetails/{employeeId}")
+	@CircuitBreaker(name=EMPLOYEE_SERVICE, fallbackMethod = "employeeFallback")
 	public ResponseEntity<Organization> getOrganizationDetails(@PathVariable("employeeId") String employeeId){
+		System.out.println("Checking1");
 		Employee employee=this.service.findById(employeeId);
 		RestTemplate restTemplate= new RestTemplate();
+		System.out.println("Checking2");
 		Organization organization=restTemplate.getForObject("http://localhost:8999/organization/organizationId/"+employee.getOrganizationId(), Organization.class);
+		System.out.println("Checking3");
 		return new ResponseEntity<Organization>(organization,HttpStatus.OK);
 	}
 
-	public ResponseEntity<String> employeeFallback(Exception e){
-		return new ResponseEntity<String>("service is down",HttpStatus.OK);
-	}
+	 public ResponseEntity<String> employeeFallback(Exception e){
+		 System.out.println("Checking");
+	        return new ResponseEntity<String>("Service is Down", HttpStatus.OK);
+
+	    }
 }

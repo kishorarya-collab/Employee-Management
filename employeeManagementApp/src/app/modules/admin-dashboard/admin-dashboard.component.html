@@ -14,27 +14,49 @@
 </nav>
 
 <div class="container admin">
-    
+    <!-- <h1 style="color: #ff186975;">Admin  Dashboard</h1> -->
     <div class="row">
         <div class="col-md-6">
             <div class="row emp">
-                <button type="button" (click)="manageEmployee()" class="btn btn-success">
+                <!-- <button type="button" (click)="manageEmployee()" class="btn btn-success">
                     Manage Employee
-                  </button>
+                  </button> -->
+                  <a (click)="manageEmployee()" class="button" style="--color:#1e9bff;cursor: pointer;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Manage Employee
+                  </a>
             </div>
             <div class="row dep">
-                <button type="button" (click)="manageDepartment()" class="btn btn-success">
+                <!-- <button type="button" (click)="manageDepartment()" class="btn btn-success">
                     Manage Department 
-                  </button>
+                  </button> -->
+                  <a (click)="manageDepartment()" class=" button" style="--color: #ff1867;cursor: pointer;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Manage Department
+                  </a>
+            </div>
+            <div class="row org">
+                <!-- <button type="button" (click)="manageOrganization()" class="btn btn-success btnorg">
+                    Manage Organization 
+                  </button> -->
+                  <a (click)="manageOrganization()" class="button" style="--color: #6eff3e;cursor: pointer;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Manage Organization 
+                  </a>
             </div>
         </div>
-        <div class="col-md-6" >
-           
+        <div class="col-md-6 dsbrd">
+          <h1>Wecome To Admin Dashboard !</h1>
         </div>
     </div>
-    <div class="row org">
-        <button type="button" (click)="manageOrganization()" class="btn btn-success btnorg">
-            Manage Organization 
-          </button>
-    </div>
+    
 </div>

@@ -8,7 +8,7 @@ body{
     justify-content: center;
     font-family: 'Raleway', sans-serif;
     background-color: rgb(240,240,240);
-    background-image: url('https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/619150/3bb00cbe95127f2fe36c85a33cfe69f4e5911234.jpg');
+    color: #000;overflow-x: hidden;background-image: url("https://hitfigure.com/wp-content/uploads/2012/03/login-background.jpg");background-repeat: no-repeat;background-size: 100% 100%
 }
 
 .card{
@@ -17,9 +17,9 @@ body{
     align-items: center;
     border-radius: 0 0 15px 15px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    width: 400px;
+    width: 600px;
     padding-bottom: 15px;
-    background-color: white;
+    background-color: rgba(198, 199, 198, 0.589);
     align-content: center;
     padding-left: 20px;
     padding-right: 20px;

@@ -13,7 +13,7 @@ export class ListEmployeeComponent {
 
   employees: Employee[];
   constructor(private employeeService:EmployeeManagementService, private router:Router){}
-
+  name:any
   id : Number;
   totalRecords:any;
   page:any=1;
@@ -45,13 +45,35 @@ export class ListEmployeeComponent {
       console.log(data);
       this.employeeService.organization=data;
       this.router.navigate(['/orgProfile'])
-    })
+    },
+    (error) => this.router.navigate(['/error'])
+    )
+    
   }
   getDep(empId:String){
     this.employeeService.getDepByEmp(empId).subscribe(data=>{
       console.log(data)
       this.employeeService.department=data
       this.router.navigate(['/depProfile'])
-    })
+    },
+    (error) => this.router.navigate(['/error'])
+    )
+  }
+  Search(){
+    if(this.name==""){
+      this.ngOnInit();
+    }
+    else{
+      this.employees=this.employees.filter(res=>{
+        return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+      });
+    }
+  }
+
+  key: String ='id';
+  reverse:boolean=false;
+  sort(key){
+    this.key=key;
+    this.reverse=!this.reverse;
   }
 }

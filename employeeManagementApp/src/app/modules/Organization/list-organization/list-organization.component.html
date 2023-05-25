@@ -16,6 +16,7 @@
       <a routerLink="/adminDashboard">Home</a>
       <!-- <a class="active" routerLink="orgProfile">Profile</a> -->
       <a routerLink="/addOrganization">Add Organization</a>
+      <a class="navbar-brand" routerLink="/login">Logout</a>
   </div>
 </nav>
 
@@ -43,7 +44,7 @@
                     <td>{{organization.organizationId}}</td>
                     <td>{{organization.organizationName}}</td>
                     <td>{{organization.organizationAddress}}</td>
-                    <td><button (click)="updateOrganization(organization.organizationId)" class="btn btn-info">Update</button>
+                    <td><button (click)="updateOrganization(organization.organizationId)" class="btn btn-success">Update</button>
                     <button (click)="deleteEmployee(organization.organizationId)" class="btn btn-danger" style="margin-left: 20px;">Delete</button></td>
                 </tr>
                 </tbody>

@@ -31,7 +31,7 @@ public class IDepartmentServiceImpl implements DepartmentService{
 	public Department findByDepartmentId(Long id) {
 		Optional<Department> dep=this.departmentRepository.findById(id);
 		Department dept= dep.orElseThrow( 
-				()-> new DepartmentNotFoundException("Employee not exist") 
+				()-> new DepartmentNotFoundException("Department does not exist") 
 				);
 		return dept;
 	}

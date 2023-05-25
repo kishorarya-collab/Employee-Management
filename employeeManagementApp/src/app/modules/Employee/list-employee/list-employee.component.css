@@ -6,6 +6,31 @@
     margin-bottom: 20px;
 }
 
+#hvr1 :hover{
+  /* background-color: #88f88e4f; */
+  padding: 5px;
+  margin: 0px;
+  border-radius: 5px;
+  color: rgba(20, 16, 241, 0.384);
+  font-size: 25px;
+  font-weight: 800;
+  transform: translateY(0);
+}
+
+.nv{
+  display: inline;
+}
+
+#hvr2 :hover{
+  /* background-color: #88f88e4f; */
+  padding: 5px;
+  margin: 0px;
+  border-radius: 5px;
+  color: rgba(16, 241, 35, 0.384);
+  font-size: 25px;
+  font-weight: 800;
+  transform: translateY(0);
+}
 
 .topnav {
     background-color: #333;

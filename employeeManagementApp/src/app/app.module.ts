@@ -21,6 +21,10 @@ import { OrgProfileComponent } from './modules/Organization/org-profile/org-prof
 import { DepProfileComponent } from './modules/Department/dep-profile/dep-profile.component';
 import { EmpProfileComponent } from './modules/Employee/emp-profile/emp-profile.component';
 import { LoginComponent } from './modules/login/login.component';
+import { ErrorComponent } from './modules/error/error.component';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { EmployeeLoginComponent } from './modules/login/employee-login/employee-login.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +43,8 @@ import { LoginComponent } from './modules/login/login.component';
     DepProfileComponent,
     EmpProfileComponent,
     LoginComponent,
+    ErrorComponent,
+    EmployeeLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,9 @@ import { LoginComponent } from './modules/login/login.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2OrderModule,
+    Ng2SearchPipeModule
   ],
   providers: [EmployeeManagementService,ListEmployeeComponent],
   bootstrap: [AppComponent]

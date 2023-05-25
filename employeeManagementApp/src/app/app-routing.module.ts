@@ -14,6 +14,8 @@ import { OrgProfileComponent } from './modules/Organization/org-profile/org-prof
 import { DepProfileComponent } from './modules/Department/dep-profile/dep-profile.component';
 import { EmpProfileComponent } from './modules/Employee/emp-profile/emp-profile.component';
 import { LoginComponent } from './modules/login/login.component';
+import { ErrorComponent } from './modules/error/error.component';
+import { EmployeeLoginComponent } from './modules/login/employee-login/employee-login.component';
 
 const routes: Routes = [
   {path: 'employees',component:ListEmployeeComponent},
@@ -30,7 +32,9 @@ const routes: Routes = [
   {path:'orgProfile',component:OrgProfileComponent},
   {path:'depProfile',component:DepProfileComponent},
   {path:'empProfile',component:EmpProfileComponent},
-  {path:'login',component:LoginComponent}
+  {path:'login',component:LoginComponent},
+  {path:'error',component:ErrorComponent},
+  {path:'employeeLogin',component:EmployeeLoginComponent}
 ];
 
 @NgModule({

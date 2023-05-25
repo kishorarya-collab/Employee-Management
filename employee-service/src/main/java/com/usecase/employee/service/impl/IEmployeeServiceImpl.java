@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.usecase.employee.exception.EmployeeNotFoundException;
@@ -48,19 +46,6 @@ public class IEmployeeServiceImpl implements EmployeeService {
 		return this.repo.findAll();
 	}
 
-	@Override
-//	public ResponseEntity<String> deleteById(Long deleteId) {
-//		Employee employee;
-//		String str;
-//		employee = this.repo.findByid(deleteId);
-//		if(employee==null) {
-//			str="Emplyee cannot be Deleted as it was not found in our database";
-//		}
-//		else {
-//			str="Employee has been deleted";
-//			this.repo.deleteById(deleteId);
-//		}
-//		return new ResponseEntity<String>(str,HttpStatus.OK);
 //	}
 	public String deleteById(String deleteId) {
 		String str="";

@@ -34,4 +34,9 @@ public class controller {
 		}
 		return ResponseEntity.status(HttpStatus.SC_NOT_FOUND).build();
 	}
+	
+	@PostMapping("/saveCred")
+	public Login savePassword(@RequestBody Login login){
+		return this.uService.saveCred(login);
+	}
 }
