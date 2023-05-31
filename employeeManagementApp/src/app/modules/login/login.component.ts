@@ -12,7 +12,6 @@ export class LoginComponent {
 
 
   login: Login = new Login();
-
   constructor(private loginService: EmployeeManagementService , private route: Router) {}
 
   User(){
@@ -21,6 +20,7 @@ export class LoginComponent {
       alert('Login Succesfull');
       if(this.login.username.substring(0,4)=="ADMN"){
         this.route.navigate(['/adminDashboard'])
+
       }
       else {
         this.loginService.getEmployeeById(this.login.username).subscribe((response)=>{
@@ -31,8 +31,6 @@ export class LoginComponent {
       }
     },
     (error) => alert("Please Enter Correct Credentials")
-    )
-    
+    ) 
   }
-
 }

@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.usecase.employee.model.Employee;
 import com.usecase.employee.service.impl.IEmployeeServiceImpl;
+//import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 import org.springframework.web.client.RestTemplate;
@@ -33,8 +35,6 @@ public class Controller {
     private IEmployeeServiceImpl service;
     private static final String EMPLOYEE_SERVICE = "employeeService";
 
-//	@Autowired
-//	private RestTemplate restTemplate;
 
     
     @PostMapping("/addEmployee")

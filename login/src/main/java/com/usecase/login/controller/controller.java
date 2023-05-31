@@ -15,15 +15,17 @@ import com.usecase.login.serviceimpl.LoginServiceImpl;
 @RequestMapping("/login")
 public class controller {
 	
+	String token;
 	@Autowired
 	private LoginServiceImpl uService;
-	
+
 	@PostMapping("/signin")
 	public ResponseEntity<Login> login(@RequestBody Login login){
 		Login logn = uService.username(login.getUsername());
 		
-		System.out.println(logn);
-		
+//		System.out.println(logn);
+		token=this.authenticateAndGetToken(login);
+		System.out.println(this.authenticateAndGetToken(login));
 		if (logn==null)
  			return ResponseEntity.status(HttpStatus.SC_NOT_FOUND).build();
 		else if (login.getPassword().equals(logn.getPassword()))
@@ -39,4 +41,10 @@ public class controller {
 	public Login savePassword(@RequestBody Login login){
 		return this.uService.saveCred(login);
 	}
+
+//	@PostMapping("/authenticate")
+	public String authenticateAndGetToken(@RequestBody Login login){
+		return this.uService.generateToken(login.getUsername());
+	}
+	
 }
