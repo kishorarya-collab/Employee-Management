@@ -55,7 +55,7 @@ public class Controller {
 	}
 
 	@PutMapping("/update/{departmentId}")
-	public Department updateDepartment(@PathVariable("departmentId") Long departmentId,@RequestBody Department department) {
+	public Department updateDepartment(@PathVariable("departmentIsd") Long departmentId,@RequestBody Department department) {
 		return this.departmentService.updateDepartment(departmentId,department);
 	}
 }
